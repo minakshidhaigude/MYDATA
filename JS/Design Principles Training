@@ -1,0 +1,202 @@
+============
+SOLID -> Single Responsibility, Open-closed,Liskov substitution,
+         Interface segregation,Dependency inversion
+============
+
+S-> Single Responsibility
+-> do one task and do it well.
+-> complied/followed at every level:
+              -> function
+              -> class
+              -> package/dll   ---> ado.net system.data.dll  ---------> interacting with sql server.
+              -> application 
+
+UI ang /react / spring boot/ asp.net core
+REST Val
+REST Biz policy implementation (Biz logic)
+REST Data Access Interaction
+Service gateways/proxies
+authentication/authorization
+Logging
+
+void RegisterPatient(Patient p)
+{
+              //authorization
+              //validation ->p 
+              // logging code
+              //db interaction
+}
+
+              
+======================================================
+O: 
+-> the code should open for extension and closed for modification.
+-> if we can incorporate CR by config changes or by adding a new code  rather than modifying existing code.
+
+interfaces
+DI - IoC 
+(Inversion of control -> Inversion means our application code and control means
+ configuration data-- application controls data )
+functional prog
+DP  -> state pattern.
+delegates
+generics
+
+
+c -> s
+
+=======================================
+
+int []nums ={...........................};
+
+
+Sum(nums,n=>n % 2 ==1);
+
+Sum(nums,n => n >= 100 &&  n<= 200);
+
+
+delegate boolean sumfilter(int n);
+
+int Sum(int []arr,sumfilter f)
+{
+              long t=0;
+              foreach(int n in arr)
+              {             
+                             if(f(n))
+                                           t+= n;
+              }
+              return t;
+}
+
+=====================================================
+
+
+interface IDocument
+{
+              void Print();        
+}
+
+class WordDocument : IDocument{}
+
+
+
+
+class PrintDocuments{
+
+              public static void PrintDocument(IDocument doc)
+{
+              doc.Print();
+}
+
+              private  static void PrintWord(IDcocument doc){}
+
+              private  static void PrintExcel(IDcocument doc){}
+
+
+}
+
+
+
+===============================================
+
+void F1()
+{
+                             DateTime dt = DateTime.Now();
+              
+                             if(dt.  )
+                             {
+
+
+                             }
+
+}
+
+=====================================================================
+
+    B
+D1         D2
+
+
+Emp e = new Emp();
+
+
+<TextBox name="txtname" Text="{e.EmpName,converter=xyz}"/>
+
+
+<Ellipse Background="{e.EmpSal,converter=Mysalconv}"/>
+
+
+interface IConverter{
+
+              object Convert(){}
+              object ConvertBack(){}
+}
+
+
+C1  C2
+
+
+
+interface IMobilePhone{
+RAM
+Processor
+Storage
+
+MakeCall()
+SwitchOn()
+SwitchOff()
+
+TraferFileWithBlueTooth();
+
+
+
+
+}
+
+=============================================================
+High level code and LVcode
+
+
+
+================================================
+
+REST Svc
+  |
+  V
+
+class PateintDALService{
+
+              PatientDALService (IConfigurationSetting cm){this.config = cm;}  
+
+              void AddPatient(Patient p)
+              {
+                             string connstr = config.GetSetting("dbendpoint");
+                             //
+                             //           
+
+                             //
+                             
+              }             
+
+}
+
+
+interface IConfigurationSetting
+{
+
+
+}
+
+class LocalConfigurationSetting:IConfigurationSetting
+{
+
+              string GetSetting(string settingname){}
+
+}
+
+class AzureConn
+
+}
+
+
+A->B

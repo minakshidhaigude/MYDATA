@@ -1,0 +1,21 @@
+why testing-->
+ 1.To guard against regression(new functionality in appln is impacting on the existing functionality)
+ 2.Provides objectives success criterias
+
+Types of testing
+   a.Manual --QA does and creates summary reports
+   b.Automation --  Automation tools eg protractor, or unit testing is a part of automation
+
+Types of Automation Testing?
+  a.Unit -test invidivual piece of code that executes independantly
+  b.Integration -- check multiple units work together or not
+  c.E2E Testing -- doesnot the internal logic of code .it checks outer flow or
+                   users perspective
+To run particular folder 
+ng test --include src\app
+
+For testing Reactive forms module-->
+imports:[ReactiveFormsModule]
+tanbul is the tool which generate angular code coverage
+To show code coverage for particular component use:
+ng test --include src/app/login --code-coverage

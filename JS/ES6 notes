@@ -1,0 +1,66 @@
+ES6 -->
+[*1*] var,let,const
+ES5-- var k/w : hoisting means variable declarations at top.
+                we can use variable before declaring but o/p: 'undefined'
+                Any variable which declare inside fun is private and 
+                which is declare outside fun is public
+                "var" have function scope
+
+ES6--> let k/w : we can't use variable before declarations of it O/P :  reference error
+                  "let" have block scope
+
+ES6--> const k/w: similar to let k/w
+                   But we can't reinintialize the value of 'const' variable
+                   It also have block scope   
+                
+
+[*2*] Template literals /template string 
+                Previously need for concatening with '+'
+              :  use `` and `${}`  
+      advantages:  To Handle complex string in more convenient way  
+
+[*3*] Arrow functions --
+         'this' will refer to current object.
+         Handling 'this' in ES5 have problem  like 'this' refers to window object .arrow fun 
+         help to remove 'this' k/w problem. when we want 'this' k/w don't loose value of it.
+         means refer to its parent for that one of the best usecase is arrow functions
+(fun parms) => {body}
+    where not to use arrow fun:
+                    when object have method or function that time arrow fun is not working
+[*4*] Mutable and Immutable object -->
+         Primitive types(numbers,boolean,string,symbol,null,undefined) are 
+         immutable(once created never change its value).
+         Reference type(Array,Objects) are mutable.(once created change its value)--here is the
+         way of variable point to same memory location .i.e b = a  but we want to change its memory location
+         or assign it to separate memory location  i.e  b = a.concat() or b = [...a]
+         for that use : concat() or spread operator
+         for objects: to make mutable objects to be immutable object use: let d = Object.assign({},c)
+         or let d = {...c}
+
+[*5*] Spread operator -->
+      const users = ['user1','user2']
+      console.log(users) // ['user1','user2']
+      console.log(...users) // user1 user2
+      It expands the array into individual elements so it can be used to expands the array
+      in a place where zero or more elements expected
+
+[*6*]  Rest Parameters --> syntax which allows functions to accept indefinite no. of arguments as an array
+ function(arg1, arg2,...rest)
+Use array destructuring
+let x = [10,20,30];
+let v1 = x[0];
+let v2 = x[1];
+let v3 = x[2];
+===>
+let [v1,v2,v3] = x // array destructuring
+
+object destructuring -->
+let user = {name:"abc",age:20,location:"xyz"}
+ let {name,age,location} = user
+ console.log(name) //abc
+ console.log(age) //20
+ console.log(location) //xyz
+=====
+spread operator -->
+help us to extract array elements individually
+one of the easiest way to copy one array into another array

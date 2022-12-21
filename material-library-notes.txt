@@ -1,0 +1,52 @@
+Angular Matrial -->
+
+How to install specific version of angular material?
+ npm install @angular/material@11.2.12
+
+Install Angular Material
+ng add @angular/material
+npm i @angular/material
+
+https://stackblitz.com/edit/angular-mat-date-mask?file=app%2Fdatepicker-overview-example.html
+
+components -- 1.company
+              2.popup
+services-- shared/api
+Model folder--companymodel.ts
+ export interface CompanyModel{
+  id:number,
+  name:string,
+empcount:number,
+revenue:number,
+address:string,
+isactive:boolean 
+}
+
+class="mat-elevation-z8"
+create custom model so all material import part is in MaterialModel.ts( folder structure like main.ts)
+ Just do these MaterialModel.ts import in app.module.ts file
+
+use--
+form-field
+input
+table
+paginator
+sort
+dialog
+button
+checkbox
+
+
+***************************
+https://v11.material.angular.io/
+ng add @angular/material
+toolbar
+mat icon list-->
+https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/
+model in bootstrap in material like dialog
+btn have (click)="openDialog()" for this required one component
+Inside angular.json file check css is applied or not
+to show mat-form-field need to include mat-input-module
+to show matdatepickermodule need to include MatNativeDateModule
+to create fake json server
+json-server --watch db.json

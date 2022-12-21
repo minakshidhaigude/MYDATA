@@ -1,0 +1,188 @@
+Guidline:
+1.Magic numbers
+for (let i = 0; i < 86400; i++) {} -->
+const sec_in_day = 86400;
+for (let i = 0; i < sec_in_day; i++) {}
+======
+2.Deep Nesting
+const exampleArray = [[["one", "two", "three"]]];
+//iterate the nested array --> bad practice
+exampleArray.forEach((array1) => {
+  array1.forEach((array2) => {
+    array2.forEach((value) => {
+      console.log(value);
+    });
+  });
+}); -->
+const retrieveFinalValues = (element) => {
+  //check if element is indeed an array
+
+  if (Array.isArray(element)) {
+    for (let i = 0; i < element.length; i++) {
+      retrieveFinalValues(element[i]);
+    }
+  } else {
+    // if not an array,print the element as it is
+    console.log(element);
+  }
+};
+retrieveFinalValues(exampleArray);
+=====
+3.Reduce code comments
+=====
+4.Avoid large functions
+//bad practice
+const addMulSub = (x, y, z) => {
+  //addition
+  const addition = x + y + z;
+  //multiplication
+  const multiplication = x * y * z;
+  //substraction
+  const substraction = x - y - z;
+  //return a string with a concatenated result of each operation
+  return `${addition},${multiplication},${substraction}`;
+};
+console.log(addMulSub(1, 2, 3));--> 
+//separate function for each operation
+const doAddition = (x, y, z) => x + y + z;
+const doSubstraction = (x, y, z) => x - y - z;
+const doMultiplication = (x, y, z) => x * y * z;
+=====
+5.Use camel casing for naming variables and functions--> descriptive and conciseness
+=====
+6.Meaningful names
+=====
+7.Consistent verbs per concepts-->
+A function name must be verb or verb phrase & must communicate its intent
+Always be consistent in using the verb 
+=====
+8.Nouns for classnames-->
+Use pascal case for classnames
+=====
+9.Capitalize constant values -->
+Use snake upper case naming convention for constant
+A constant is something which won't change
+The const declaration in Js means that the value can not be mutated with a reassignment
+A true constant value is a primitive value that won't be changed later
+ex: SECONDS_IN_A_DAY, value of PI,NUMBER_OF_DAYS_IN_A_WEEK
+=====
+10.Avoid one letter variable/function name
+=====
+* Debugging best practice -->
+
+const obj1 = {id:1,name:"Minakshi"};
+const obj2 = {id:2,name:"Nikhil"};
+const obj3 ={id=3,name:"Joel"};
+instead of console.log(obj1) -->  give object
+ ** console.log({obj1,obj2,obj3});
+use computed property names to add variables to an object
+
+ ** Use console.table() to log an array of objects in table format
+console.table([obj1, obj2]);
+
+** Use console.timer() and console.timeEnd() when benchmarking performance
+
+=====
+
+* Array Operations -->
+//some random values
+let values = [123, 100, 5560, 678];
+//compute total of all array elements
+//compute square of each array element
+//filter out elements based on some condition
+let total = 0;
+let squared_array = [];
+let filtered_array = [];
+
+//traditional(bad) approach
+for (let i = 0; i < values.length; i++) {
+  //reduce operation
+  total += values[i];
+  //map operation
+  squared_array.push(values[i] * values[i]);
+  //filter operation
+  if (values[i] >= 200) {
+    filtered_array.push(values[i]);
+  }
+}
+console.log(values);
+console.log(total);
+console.log(squared_array);
+console.log(filtered_array);
+
+Use reduce(),map()and filter() methods of an array
+to perform a reduce, map ,filter operation respectively
+//good practice
+total = values.reduce(( return accumulated_value, current_value) => {
+  accumulated_value + current_value;
+  squared_array = values.map((value) => value * value);
+  filtered_array = values.filter((value) => value >= 200);
+});
+=====
+checking equality "==" and "==="
+=====
+checking existence --> using typeof is best practice
+//var x = 0;
+//remove declaration of x
+console.log(typeof x);
+if (typeof x !== "undefined") {
+  console.log("exists");
+} else {
+  console.log("does not exist");
+} o/p --> undefined
+      --> does not exist
+    ***
+    var x = 0;
+console.log(typeof x);
+if (typeof x !== "undefined") {
+  console.log("exists");
+} else {
+  console.log("does not exist");
+}  o/p -->number
+       -->exists
+
+=====
+functions best practice -->
+There are 2 ways to create function in JS -->
+Declarations --> function hello(){}
+Expressions-->  var f = fuction(){} --> to pass function as a parameter to another function
+why--> callback 
+** hoisting means in JS declare all the variable at top means global scope
+declaration(); //hoisting at top it will work in declaration
+function declaration() {
+  console.log("This is function declaration");
+}
+---
+expression();// this code will not work
+var expression = function () {
+  console.log("This is function expression");
+};
+----
+
+var expression = function () {
+  console.log("This is function expression");
+};
+expression(); // it will work
+=====
+JS global variables
+Forgetting to put var in variable declaration, 
+causes the variable to leak all up to the global scope.
+This might not always be expected!!
+SO HOW CAN YOU AVOID THIS?? --> 'use strict' mode
+var toPrint = "print me";
+function print(out) {
+  //remove the var keyword
+  stringToPrint = out;
+  console.log(stringToPrint);
+}
+print("Hello");
+//put "stringToPrint" at last
+console.log(stringToPrint);//op--> Hello
+                                   Hello
+
+=====
+"use strict"; //avoide duplicates use strict mode
+function print(a, b, a) {
+  console.log(a);
+}
+print(1, 2, 3);

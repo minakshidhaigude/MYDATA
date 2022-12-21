@@ -1,0 +1,84 @@
+what is ng-template?
+how is it differ from ng-container
+if I don't want to write any selector how we can able to display the component.
+how to use communication between two component? - more question on that
+#NAME?
+how to draw cicle using html css
+how you send token from frontend to backend?
+what is lifecycle method of angular?
+what is the difference between ngafterviewinit and ngafterviewchecked
+how to use inheritance in angualr?
+what happen if we inherit one class to another?
+we have pie chart we want to use in my component how we can do it?
+if we wnt to change one x-axix in pie chart then how we can do it? what approach you follow?
+how we can make it sharable?
+how we can load an component?
+Why to use Angular ?
+What is ngModule ?
+When will you create components ?
+Have you used any css library ?
+Do you know what is packaging and have you worked on it ?
+How you will handle external rest api calls ?
+What is Angular CLI ? What is the benefit and disadvantage ?
+What is observables?
+Difference between observables and Promises?
+Difference between constructor and ngOnInit.
+What is event emitter?
+Move above circle to the middle of the screen.
+Jasmine and Karma questions. (about beforeEach and testcases)
+Scenario based questions
+what is lazy loading in angular?
+What is data resolver in angular?
+What is interceptor in angular?
+What is difference between data resolver vs interceptor?
+what is purpose of main.js file in angular?
+what happen in background when we use ng-serve and ng-build
+
+
+============================================================================
+
+Angular
+
+1 Which angular versions have you worked with?
+2 Which version are you using in current project?
+3 Have you connected front end with APIs? How u did it? (interceptors & http module related questions)
+4 Observables and how they work? have you used any? Name & uses?
+5 Ways to update parent component from child & vice versa
+6 Resolvers & promises, directives
+7 How will you improve performance of angular apps?
+8 Challenge you faced while developing angular app & how you resolved it?
+9 Testing experience in Angular & NodeJS? Which have you used (Jasmine, karma etc.)?
+11. What is pipe and which pipes do have used?
+12. Types of pipes? and how to create a custom pipe?
+13. Use of async pipe?
+14. Type of directives? explain each?
+15. what is observables? what is difference between observables and promises?
+16. How to share data between 2 components?
+17. What is Subject in angular? Difference between Subject & behaviourSubject?
+18. What is Dependency Injection?
+19. Have you used service in angular? Explain service.
+20. What is pure and impure pipe? what is difference between them? How we make impure pipe?
+21. How we make a api call in angular?
+22 How to create promise and call it?
+23 Situation: If 2 users have requested to same api with different inputs, but requested at same time. The computation is taking
+24 hour per request then should each user wait for 1 hour? Or how they both can get served at same time?
+25 Any idea about deployment and what steps are followed?
+26 What is typescript and its features over plain javascript
+27 What features attracts you about the front end technology like react or angular
+28 What is meaning of single threaded web application? what are problems with it
+29 A simple javascript code was given and its output was asked [it was about the execution flow with settimeout function]
+
+HTMl5:-
+1.New symentic elements in html5
+2.What is difference between div & span
+
+css:-
+1. what is box module in css. explain the concept.
+
+Javascript:-
+1.What is closure?
+2.Difference between let and var?
+3.Event loop in javascript
+4.what is callback hell? how to write callback function?
+5.Write a promise syntax and explain promises.
+

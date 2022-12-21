@@ -1,0 +1,7 @@
+D.I --
+when we create angular app,like we have to use anything like we have to call anydata
+from the api side so generally what we do we write that api in the service so we create
+the service and in that service we call the api and then in the component side whenever we
+need that particular service so what we do we inject that service into the constructor
+using the then using the instance we use that one so DI is basically kind of design pattern
+in which a class requires dependencies from the external sources rather than creating them

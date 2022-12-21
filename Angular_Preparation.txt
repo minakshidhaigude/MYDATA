@@ -1,0 +1,288 @@
+
+ng-template -->  is not rendered by default.
+ 3 ways to use ng-template-->
+1. *ngIf directive use if else sceniaro in template ex: login and logout function
+2. *ngTemplateOutlet -- to reuse template into multiple places in your template
+                        file ex:have a logo name and show it to header and 
+                        footer toolbar
+3.Render programmatically --> use @viewChild to get the ng-template in our component code
+                              and then we can add it wherever we want
+   --> Accessing template of  same component 
+   --> Accessing the template of child component into parent component
+ng g c viewchild/counter -it -is --skipTests
+ng g m app-routing --flat 
+--flat -> for same folder
+=====================================================================================
+ng-content --> use parent to child realtionship <ng-content select=""></ng-content>
+content projection 
+=====================================================================================
+HTTP Interceptor -->
+Interceptors are a unique type of Angular Service that we can implement.
+Interceptors are allow us to intercept incoming or outgoing HTTP requests using 
+HttpClient.
+Operations using with interceptors==
+1.Modify Http Headers
+2.Modifying the request body
+3.Set authentication/authorization token
+4.Mock the backend api
+5.Modify the response
+6.Error handling
+========================================================================================================================
+ViewEncapsulation -->Emulated,ShadowDom,None
+In component decorator we provide the encapsulation: ViewEncapsulation.None  --> apply to all comp as like global css 
+properties -- angular by default use Shadow dom, emulated(default behavior:each comp has its own styles) 
+============================================================================================================================
+local reference #element -->Template variables(create in the html(local reference) without interacting with ts files)
+scope of template variables is parent to child not vice-versa
+Component Instance
+=====================================================================================================
+Lazy loading -->
+ng g m admin --routing
+ng g c admin/login
+ng g c admin/list
+ {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
+=====================================================================================================
+Pipes
+===========================================================================
+Guard -->
+   1.CanActivate -- checks to see user can visit a route
+   2.CanActivateChild -- checks to see user can visit a routes children(nested route)
+   3.CanDeactivate -- checks to see  if user can exit a route
+   4.Resolve-- wait for data  resolve before route activation
+   5.CanLoad -- checks to see if user can route to a module that lazy loaded
+   
+
+RxJs -->
+purpose -- To handle async data stream
+==============================
+Firebase in angular -->
+ng add @angular/fire
+ng add @ngneat/hot-toast
+
+check in app.module.ts and enviornment.ts --> firebase setup
+===============================================================================
+
+change detection
+===============================
+Bootstrap-->
+class --> img-fluid for image responsive
+bootstrap flow -->
+=================
+razorpay/.com/docs/payment-gateway/web-integration/standard/
+============================
+npm i ngx-pagination
+In app module.ts -->
+import {NgxPaginationModule} from 'ngx-pagination'
+npm i ngx-pagination@5.0.0
+js-tutorials.com/angularjs-tutorial/html-table-listing-pagination
+
+
+===========================================================
+23/11/2022
+Lazy loading
+pipes
+Directives
+TDF,RF
+Routing
+Services
+Guards,
+Component commn
+parent to child @Input() using [] property binding
+child to parent @Output  using () event binding Eventemitter
+@Viewchild('ref id')
+ p to c --> child @Input() parentData
+            parent [parentData] = ''
+
+ c to p --> child @Output() data:eventEmitter 
+            parent (data)='datafn($event)'
+@ViewChild('')marker:ElementRef / QueryList /Component -->accessing template or html in same comp and accessing template of child comp into parent comp
+@ContentChild('')
+@ContentChildren('') accessing the html which is projected using <ng-content> from parent to child
+c --> p use emit() to send the data 
+cross component communication using subject and behavior subject.
+subject are also one type of observable so when we want to use observable need to subscribe it. similarly subjects also subscribe 
+Inside subject we use next() to send data and 
+
+========================================================================================================================================================================
+RxJs operators are observable so we can subscribe it. 
+map() Before subscribe we can modify the data using pipe operator
+RxJs operators -->
+of()
+from() --> use when we convert array to observable
+converts as a observable stream  i.e of() and from() are observables have to subscribe it
+
+map() +
+mergAll()   are equivalent to mergeMap() //getting data on priority
+
+map()  +
+concatAll()   are equivalent to concatMap() //concat sequentially e.g Mobile Notification
+line by line emission received
+if order of data is matter then use concatMap()
+flatening means need to subscribe() multiple times i.e nested subscribe instead we  can also use these mergeMap(),concatMap().....  
+
+map()+
+switchAll() are equivalent to SwitchMap() //previous emmission canceled only new req is emitted
+e.g search
+when we want previous emission should be cancelled and get only latest emission that time use switchMap
+
+exhaustMap()
+//don't  disturb strategy use
+when we click on btn multiple times(by mistakely) that time  only one request is created at server other request(middle request) are ignored only last request will work
+===============================================================================================================================================================
+JSON.stringify()
+JSON.parse()
+charAt()
+slice(start,end) end-->negative no. from end === return as new array
+
+splice()
+splice() method adds and/or removes array elements and overwrites the original array
+array.splice(index, howmany, item1, ....., itemX)
+https://stackblitz.com/edit/angular-excersise1-2u5zwy?file=src%2Fapp%2Fcount.service.ts
+
+=======================================================================================================================================================================
+ngModel -- it shows on console elements ng-reflect-model
+when we use ngModel that time name attribute must include otherwise get error
+ instances for validation -->ng-pristine ng-invalid ng-touched
+=================================================================================================================================================================
+promise --> 1. async -- wait till getting the response from server not execute further operations eg whatsapp message
+            2.Return single value -- resolve 
+                                  -- reject
+observables-->1.async/sync
+
+              2.return stream of values 
+                data------data0--------data1
+ 'async' keyword with function always return promise
+ 'await' keyword is wait to resolve the promise
+  3ways 
+1.with promise
+2.with async/await
+3.with fetch api
+
+=========================================================================================================================================================
+aync pipe in angular -- access the observable directly inside the template.Automatically subscribe to the observable no need to invoke subscribe().
+inside component(.ts file)--
+public client$:Observable<any>
+constructor(private clientSvc:ClientService){}
+ngOnInit(){
+this.client$ = this.clientSvc.getClients();
+}
+Inside template
+ *ngFor = "let client of client$ | async"
+
+with *ngIf
+*ngIf= "client$ | async as client;else loading"
+===========================================================================================================================================================
+passing parameters to route
+{path:'courses/course/:id',component:CourseComponent}
+here id will act as a parameter
+so for that we need ActivatedRoute in .ts file get currently activated route
+constructor(private activatedroute:ActivatedRoute,service){}
+course;
+courseId:
+RouteParamObs
+ngOnInit(){
+//access this activated route using snapshot properties
+this.courseId = this.activatedroute.snapshot.paramMap.get('id');
+this.courseId = this.activatedroute.snapshot.params['id'];-->old approach
+ this.course = this.service.courses.find(x=>x.id == this.courseId )
+******
+//If the value of route parameters change over the time that time use Observables
+this.activatedroute.paramMap.subscribe((param)=>{
+ this.courseId = param.get('id');
+this.course = this.service.courses.find(x=>x.id == this.courseId )
+})
+
+}
+ngOnDestroy(){
+this.RouteParamObs.unsubscribe();//explicitly unsubscribe its good practice
+//otherwise angular automatically unsubscribe it
+}
+when using link
+<button routerLink="/courses/course/{{course.id}}">Show Details</button>
+
+Retrieve the value of route parameter using 1.snapshot value
+                                            2.using Obsrvable 
+snapshot property only returns the initial value of route so
+If the value of route parameters doesn't change over the time that time only use snapshot properties
+snapshot property doesn't return the update value of route
+=================================================================================================================================================================
+Custom Attribute Directive-->
+Renderer2
+The native element property contains the reference to the underlying DOM object which gives us direct access to the DOM, bypassing the angular.This is not advisable
+for reasons like--
+1.Angular keeps the Component and the View in sync using Templates,data binding and change detection etc. All of them are bypassed when we update the DOM Directly.
+2.DOM manipulation works only in browser.u will not able to use the app in other platforms like a web worker,in Server or Desktop, or in the mobile app, etc where there
+  is no browser.
+3.The DOM APIs don't sanitize the data.Hence it is possible to inject a script, thereby,opening our app an easy target for the XSS injection attack.
+@HostListener('mouseenter') onmouse(){}
+hostlistener listen the event like 'mouseenter'or 'mouseleave' on host element like <div> or... that time host event method(or event handler method) executes
+ like onmouse()
+The @HostListener decorator listens to the DOM event on the host element and it reacts to that event by executing an event handler method
+@HostBinding decorator binds a host element property to a variable in a directive or a component
+
+=====================================================================================
+absolute path--> /home append to localhost:4200 i.e root
+when u specify the / before path and its append to the root url means 
+localhost:4200/home
+relative path--> home or ./home append to currently active route 
+suppose currently active route is  localhost:4200/courses
+so relative path is localhost:4200/courses/home
+
+**example-- 
+localhost:4200/courses/course/js 
+given like routerLink="../../basic" it goes 2 level up
+it will shows localhost:4200/courses/basic
+=========================================================================================================
+ViewEncapsulation -->
+encapsulation -- hidind data and behavior from outside world
+where component css styles are encapsulated into the components view and do not affect the rest of the application.
+ encapsulation: ViewEncapsulation.Emulated   --by default angular provide this                 //unique attribute on each element of component
+ encapsulation: ViewEncapsulation.None  -- ex all button css of app.component.css will reflect to other comp1 if "encapsulation:none property mention"then it will reflect in comp1 button also
+ encapsulation: ViewEncapsulation.ShadowDom  --when we write global css in styles.css file that time we have to hide this styles in particular comp that time use shadow dom it will seprate into 2 dom 
+==================================================================================================================================
+ng-content --
+1.is used when we want to insert the content dynamically inside the component that helps to increase
+  component reusability.
+2.Using ng-content we can pass content inside the comp selector and when angular parse at the place of ng-content
+
+===================================================================================================================
+Change Detection Strategy--
+means updating the DOM whenever data is changed.Angular provides 2 strategies for change detection
+1.Default strategy-- whenever any data is changed, Angular will run change detector to update the DOM
+
+  
+2.On Push strategy --angular will only run change detector only when new reference is passed to @Input() data
+  To improve the performance of angular use on push change detection strategy
+Inside @Component({}) include these properties 
+changeDetection:ChangeDetectionStrategy.OnPush
+not able to see the data or changed data
+constructor(private ref:ChangeDetectorRef){}
+this.ref.detectChanges() 
+====================================================================================================================
+Route guard -->
+Angular route guards can be used to control whether the user can navigate to or away from the given route based on some condition
+use cases--
+1.To confirm the navigation operation
+2.Asking whether to save data before moving away from view.
+3.Allow access to certain parts of the application to specific users
+4.Validating the Route parameters before navigating to the route.
+5.Fetching some data before you display the component view
+Types of route guards
+1.CanActivate
+2.CanDeactivate
+3.Resolve
+4.CanLoad
+5.CanActivateChild
+How to create route guard--
+1.create a route guard as a service
+2.Implement the respective route guard interface
+3.Implement the required route guard method
+4.Provide the Guard service from the root AppModule
+5.Use that route guard on the route which you want to guard
+CanActivated Route Guard--
+decides if a route can be activated or not based on conditions.This route guard can be used in cases where the user is not authorized to
+navigate to the target route

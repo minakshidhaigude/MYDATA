@@ -1,0 +1,191 @@
+/* 1.Box-model*/
+div {
+  height: 100px;
+  width: 100px;
+  padding: 10px;
+  border: 20px solid red;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+/* 2.Specificity */
+div.container {
+  background-color: yellow;
+}
+div #myid {
+  background-color: pink;
+}
+
+/*3. How to align a block element inside another element --> use tables,css flexbox ,css grades,plain old css positions*/
+.out {
+  height: 300px;
+  width: 300px;
+  background-color: yellow;
+  position: relative;
+}
+.in {
+  height: 100px;
+  width: 100px;
+  background-color: green;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 4. Difference between static,relative,absolute and fixed position*/
+div {
+  height: 40px;
+  width: 120px;
+  border: 4px solid blue;
+  padding: 20px;
+  background-color: yellow;
+}
+.two {
+  position: absolute;
+}
+/* 5.Difference between visibility:hidden and display:none*/
+/* 6.What is shadow DOM?  --> 
+CSS is basically global which means if I write css for one element 
+it can impact another element
+because its global and often when we build web component the web components are built independently 
+and they are used in different projects so it means its local css so when i use in any project
+it doesn't it shouldn't impact the average css and vice-versa so the outer ship as CSI should
+not be impacting the components so we can use shadow dom which is nothing but a scoped subtree 
+inside your element */
+
+/* 7.How to build trianle in css? -->
+ .tri{
+  height:0px;
+  width:0px;
+  background-color:red;
+  border-top:100px solid blue;
+  border-bottom:100px solid green;
+   border-left:100px solid white;
+   border-right:100px solid yellow;
+  
+}
+.tri{
+  height:0px;
+  width:0px;
+  
+  border-top:100px solid trasparent;
+  border-bottom:100px solid transparent;
+  
+   border-right:100px solid yellow;
+  
+}
+*/
+/* 8. pseudo elements --> */
+  p::after{
+  content: "I am injected to P tag";
+    
+}
+p:hover::after{
+  content: "I am injected to P tag";
+    
+}
+
+/*9. How to draw circles */
+.circle{
+  height:50px;
+  width:50px;
+  border-radius:50%;
+  background-color:pink;
+  display:inline-block;
+}
+/*10.REmove default space between two inline block elements?*/
+-->
+.ilblock{
+  border:1px solid black;
+  display:inline-block;
+  margin:-2px;
+}
+--> another way adding font-size 
+.ilblock{
+  border:1px solid black;
+  display:inline-block;
+  margin:-2px;
+  font-size:15px;
+}
+.parent{
+  font-size:0px;
+}
+/*10.How to manage z-indexes in app?*/
+.maindiv{
+  height:300px;
+  width:50%;
+  background-color:gray;
+  position:relative;
+}
+.div1{
+  height:100px;
+  width:100px;
+  background-color:pink;
+  top:0;
+  left:0;
+  position:absolute;
+  z-index:1;
+}
+.div2{
+  height:100px;
+  width:100px;
+  background-color:red;
+   top:0;
+  left:0;
+  position:absolute;
+}
+.div3{
+  height:100px;
+  width:100px;
+  background-color:blue;
+   top:0;
+  left:0;
+  position:absolute;
+  z-index:2
+}
+/*11. How to do you plan accessibility? */
+-->
+keboard navigation
+Text alternatives for images
+sufficient contrast 
+size of the elments and space between the elements
+readable font size 
+/* 12.Use case for using important!*/
+--> 1st try to avoid  using it as much as possible. 
+Use specificity to avoid it. 
+/*12. How would you use following syntax?*/
+this syntax is like using specificity
+.el.el{
+  color:red; 
+}
+.el.el.el{
+  color:pink;
+}
+/*13.Increase specificity of class over id*/
+<div class="el" id="myid">HI</div>-->
+[id="myid"]{ -->lower the specificity using []
+  color:blue;  
+}
+.el{
+  color:red;
+}
+and
+#myid{
+  color:blue;
+}
+.el{
+  color:red;
+}
+/*14.What is your favorite css resource(s) */
+css tricks, stackoverflow,google
+/*15. How do you do cross browser testing?*/
+dedicated m/c for IE
+virtualization and
+BrowserStack
+Docker
+/*15. flexbox*/
+The flex box layout module,makes it easier to design 
+flexible responsive layout structures without
+using float or positioning
+property like flex direction ,flex basic, flex wrap

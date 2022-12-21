@@ -1,0 +1,10 @@
+npm install --save-dev webpack
+**If npm is not install globally then use 
+  node_modules\.bin\ng test
+
+SpyOn - original instance of service is created. it is partial mocked.
+To create a full-fledged mock of the LoggerService use
+jasmine.createSpyObj('LoggerServiceMock',['log'])
+ * To check the method wil return the parameters -->
+   and.returnValue()
+**stub is also mock which is customize its behavior to certain extent and  return value

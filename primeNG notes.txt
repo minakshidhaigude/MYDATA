@@ -1,0 +1,153 @@
+PrimeNG -->
+  
+1. install primeNG -->
+   npm install primeng --save
+   npm install primeicons --save
+
+2.Inside angular.json files find the STYLES array and add 
+    "node_modules/primeicons/primeicons.css",
+    "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+                                          ----------------
+    "node_modules/primeng/resources/primeng.min.css",
+    "node_modules/primeflex/primeflex.css"
+    To change theme use free themes -->
+    bootstrap4-light-blue
+  
+
+"node_modules/primeicons/primeicons.css",
+"node_modules/primeng-lts/resources/themes/saga-blue/theme.css",
+"node_modules/primeng-lts/resources/primeng.min.css"
+3.Form -> InputText 
+   Import all related module in app.module.ts file then use input field or relevant field
+
+4.Table -->
+  npm install @angular/cdk --save  
+  Import module
+  
+  **Pagination use following properties on <p-table></p-table>
+    [paginator]="true" [rows]="10"
+
+    For showing dropdown -->
+    import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+    [rowsPerPageOptions]="[10,25,50]"
+    
+    For showing message -->
+     [showCurrentPageReport]="true"
+     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
+
+    For sorting column -->
+     <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+
+    Lazy ,filter functionalities
+
+5.Dropdown with or without filter -->
+        Import Dropdown and BrowserAnimationsModule in app.module.ts file
+        <p-dropdown [options]="cities" [(ngModel)]="selectedCityCode" optionLabel="name" optionValue="code"></p-dropdown>
+        {{selectedCityCode | json}}   
+        optionLabel="name"
+        optionValue="code" //after selection dropdown which value have to show 
+        from backend its come label and value then not put  these properties optionLabel="name" optionValue="code" its automatic take
+        [filter] = "true" // In dropdown for filter  or search purpose
+
+6. Multiselect Dropdown -->
+     In multiselect dropdown filter is automatically work so no need to add [filter] properties
+     Chips display --> display="chip"
+
+7. Checkbox -->
+8. Calendar -->
+ Date Picker in html --> <input type="datetime-local">
+ dataType = "string"
+ dateFormat = "dd/mm/yy"
+
+
+https://dummyjson.com/products/search?q=iph
+9.Autocomplete
+10.InputText
+11.Editor
+12.Reactive Form
+13.Messages
+14.Toast
+   
+ng g class models/candidate 
+{
+ "data":[
+  {
+    "name":"field1",
+    "label":"Field 1",
+    "value":"",
+     "type":"text",
+     "validators":{
+       "required":true
+      } 
+  }
+   ]
+}
+
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+  
+}
+=============================
+https://www.primefaces.org/primeng-v11-lts/#/
+
+how to update angular 11.2.14 version to angular 12.2.0 version -->
+ ng update @angular/core@12 @angular/cli@12 
+
+how to install specific version of angular
+npm install -g @angular/cli@wished.version.here
+npm install @angular/cli@12.2.0
+
+npm i primeng@12.2.0
+
+how to install specific angular cdk version -->
+npm i @angular/cdk@12.2.12
+
+how to install primeflex
+npm i primeflex@3.2.1
+=============================================
+{
+  "user-data": [
+    {
+      "name": "Dhanvantri",
+      "age": "1",
+      "email_id": "dhan@gmail.com",
+      "mobile": "9999999999",
+      "pincode": "412102"
+    },
+    {
+      "name": "Mitali",
+      "age": "12",
+      "email_id": "dhan@gmail.com",
+      "mobile": "9999999999",
+      "pincode": "412102"
+    }
+  ]
+}
+
+export class Candidate{
+id:number;
+name:string;
+dob:Date;
+gender:string;
+favouriteCollection:Favourite[]
+}
+export class Favourite{
+favKey:string;
+favValue:string;
+}

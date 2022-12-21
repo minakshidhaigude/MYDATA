@@ -1,0 +1,52 @@
+1. var, let, const
+=======================================================
+2. == and ===
+=================================================================
+3. null and undefined
+===================================================================
+4. arrow function -->
+"use strict"
+let square = a =>a*a;   //let square = (a) => { return a*a};
+console.log('result:',square(3),)
+=====================================================================
+5.prototype inheritance --> 
+Basically, every object has a property called prototype where 
+you can add methods and properties to it.And when you create 
+other objects from this object the newly created objects will
+automatically inherit the property of the parent. But not by including in its
+own property instead it uses from its parent prototype properties and methods.And
+the way it works is when you call a particular method on an object it first looks at its 
+own properties to see if its there. if its not there then it will look at its parent.
+And if it finds it there then it will execute it. so this way the objects are much 
+lighter and doesn't carry all this methods with it.
+for example: if you carried a thousand objects,you won't have to include 
+all of those methods. It's automatically available to you.
+=============================================================================
+6. difference between function declaration and function expression?
+===============================================================================
+7. why promise and when we use it? -->
+ when you want make an async call which has to wait for something to happen and then
+ once it comes back you exit with a callback function. And within that callback function
+ you might do another ajax call which can wait for another result and
+ you would have another callback function on success or failure and
+ it can become kind of nested callback function hell which is kind of ugly And
+ its hard to read and debug and everything else
+ =========================================================================================
+ 8.what is closure? and how do you use it? -->
+  when function returns another function the returning function will hold its
+  environment basically all the variable is needed its environment
+  let obj = function(){
+  let i = 0;
+  return{
+    setI(k){
+      i=k;
+    },
+    getI(){
+      return i;
+    }
+  }
+};
+let x = obj();
+x.setI(2);
+console.log(x.getI());
+

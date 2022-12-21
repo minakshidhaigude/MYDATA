@@ -1,0 +1,20 @@
+Smart Code - Design Pattern1
+ 
+1.Creational --.> 
+              singleton
+              Factory method
+              Abstract factory (factory of factories) use when have a family of 
+              objects
+2.Structural -- relationship between classes
+                Adapter- is act like bridge between svc prv interface and client interface
+                Decorator--to change the beha of another class without modifying the src code of original class
+                            purpose -- add extra behavior
+                Facade
+3.Behavioral--> how entities communicate with each other or object communication
+               Iterator - traverse the ele thr collection 
+               Aggregate obj(has a relationship) use foreach() 
+               Observer-- pub/sub
+               Mediator
+               Me
+Software Design Problems-->
+Design pattern is a time proven and tested solution to recurring software problems.
